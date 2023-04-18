@@ -1,3 +1,5 @@
+// URL to explain PHASER scene: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/scene/
+
 export default class HelloWorldScene extends Phaser.Scene {
   constructor() {
     // key of the scene
@@ -5,7 +7,15 @@ export default class HelloWorldScene extends Phaser.Scene {
     super("hello-world");
   }
 
+  init() {
+    // this is called before the scene is created
+    // init variables
+    // take data passed from other scenes
+    // data object param {}
+  }
+
   preload() {
+    // load assets
     this.load.setBaseURL("http://labs.phaser.io");
 
     this.load.image("sky", "assets/skies/space3.png");
@@ -14,6 +24,7 @@ export default class HelloWorldScene extends Phaser.Scene {
   }
 
   create() {
+    // create game objects
     this.add.image(400, 300, "sky");
 
     const particles = this.add.particles("red");
@@ -31,5 +42,9 @@ export default class HelloWorldScene extends Phaser.Scene {
     logo.setCollideWorldBounds(true);
 
     emitter.startFollow(logo);
+  }
+
+  update() {
+    // update game objects
   }
 }
